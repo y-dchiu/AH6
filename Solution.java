@@ -1,6 +1,5 @@
 import java.util.List;
-
-import javax.xml.transform.Source;
+import java.util.ArrayList;
 
 class Node<T> {
   T val;
@@ -14,11 +13,16 @@ class Node<T> {
 
 class Solution {
   public static List<String> linkedListValues(Node<String> head) {
-    // todo
-    return;
+    List<String> val = new ArrayList<>();
+    Node<String> current = head; 
+        while (current != null) {
+            val.add(current.val); 
+            current = current.next; 
+        }
+        return val;
   }
 
-  public static void main() {
+  public static void main(String[] args) {
     Node<String> a = new Node<>("a");
     Node<String> b = new Node<>("b");
     Node<String> c = new Node<>("c");
@@ -29,7 +33,7 @@ class Solution {
 
     // a -> b -> c -> d
 
-    Solution.linkedListValues(a); 
+    System.out.println(linkedListValues(a)); 
     // -> [ "a", "b", "c", "d" ]
   }
 }
